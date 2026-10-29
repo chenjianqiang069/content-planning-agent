@@ -1,0 +1,223 @@
+{
+  "status": "completed",
+  "is_completed": true,
+  "reason": "方案已保存：plan_791f6f9eae47，总成本 8.0 / 预算 10，交付周期 6 天。共执行 6 步，成功 6 步，失败 0 步。",
+  "task": {
+    "theme": "夏日气泡水新品种草",
+    "budget": 10,
+    "deadline": "2026-12-15",
+    "audience": "18-30 岁都市白领",
+    "notes": "运营初步倾向的「初始方案」是：专业短视频定制 + 头部 KOL 矩阵投放（m_short_video_pro、m_kol_top）。请先评估这个初始方案；如果它超出预算，请自行寻找可行的替代方案，不要直接放弃任务。"
+  },
+  "budget": 10,
+  "total_spent": 1.0,
+  "step_count": 6,
+  "tool_call_count": 6,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "real",
+  "usage": {
+    "input_tokens": 13961,
+    "output_tokens": 1743
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "input": {},
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：命中 5 条 -> m_short_video_pro, m_kol_top, m_live_studio, m_ugc_lite, m_kol_mid",
+      "error": null,
+      "decision_basis": "先并行检索全部可用素材，并对运营给出的初始组合（m_short_video_pro、m_kol_top）做成本与周期估算，判断是否需要降级。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:29",
+      "detail": {}
+    },
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 12.0/预算 10，周期 12天/可用 48天 -> 不可行",
+      "error": null,
+      "decision_basis": "先并行检索全部可用素材，并对运营给出的初始组合（m_short_video_pro、m_kol_top）做成本与周期估算，判断是否需要降级。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:29",
+      "detail": {
+        "feasible": false,
+        "violations": [
+          "预算超限：预计支出 12.0 > 预算 10，缺口 2.0"
+        ],
+        "over_budget_gap": 2.0,
+        "projected_spend": 12.0,
+        "plan_lead_days": 12,
+        "available_days": 48
+      }
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_ugc_lite",
+          "m_kol_mid"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 8.0/预算 10，周期 6天/可用 48天 -> 可行",
+      "error": null,
+      "decision_basis": "初始方案 12.0 超预算 2.0，改用 economy 档组合；并行估算两套降级候选（UGC+腰部KOL / 直播专场+腰部KOL）以择优，估算只读不计费。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:46",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 8.0,
+        "plan_lead_days": 6,
+        "available_days": 48
+      }
+    },
+    {
+      "step": 4,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_live_studio",
+          "m_kol_mid"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 10.0/预算 10，周期 11天/可用 48天 -> 可行",
+      "error": null,
+      "decision_basis": "初始方案 12.0 超预算 2.0，改用 economy 档组合；并行估算两套降级候选（UGC+腰部KOL / 直播专场+腰部KOL）以择优，估算只读不计费。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:46",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 10.0,
+        "plan_lead_days": 11,
+        "available_days": 48
+      }
+    },
+    {
+      "step": 5,
+      "tool": "generate_script",
+      "input": {
+        "material_ids": [
+          "m_ugc_lite",
+          "m_kol_mid"
+        ],
+        "style": "种草"
+      },
+      "status": "success",
+      "charge": 1.0,
+      "result_summary": "成功：script_01_m_kol_mid-m_ugc_lite，计费 1.0，累计支出 1.0",
+      "error": null,
+      "decision_basis": "两套均可行，优选 m_ugc_lite + m_kol_mid：8.0 留 2.0 缓冲、6 天上线、UGC 主题加成 5 最契合「新品种草」。先为同一组素材生成脚本以满足保存依赖。",
+      "duration_hours": 2.0,
+      "timestamp": "2026-10-28T20:54:51",
+      "detail": {}
+    },
+    {
+      "step": 6,
+      "tool": "save_plan",
+      "input": {
+        "material_ids": [
+          "m_ugc_lite",
+          "m_kol_mid"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：已保存 plan_791f6f9eae47，总成本 8.0，剩余预算 2.0",
+      "error": null,
+      "decision_basis": "脚本已成功生成且周期 6 天与估算一致，现保存同一组素材的方案。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:54",
+      "detail": {
+        "plan_id": "plan_791f6f9eae47",
+        "duplicate": false
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 12.0/预算 10，周期 12天/可用 48天 -> 不可行"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_ugc_lite",
+        "m_kol_mid"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 8.0/预算 10，周期 6天/可用 48天 -> 可行"
+    },
+    {
+      "step": 4,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_live_studio",
+        "m_kol_mid"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 10.0/预算 10，周期 11天/可用 48天 -> 可行"
+    },
+    {
+      "step": 6,
+      "tool": "save_plan",
+      "material_ids": [
+        "m_ugc_lite",
+        "m_kol_mid"
+      ],
+      "status": "success",
+      "summary": "成功：已保存 plan_791f6f9eae47，总成本 8.0，剩余预算 2.0"
+    }
+  ],
+  "saved_plan": {
+    "plan_id": "plan_791f6f9eae47",
+    "theme": "夏日气泡水新品种草",
+    "material_ids": [
+      "m_ugc_lite",
+      "m_kol_mid"
+    ],
+    "script_summary": "《夏日气泡水新品种草》种草脚本，覆盖 2 组素材：UGC 轻量素材包（模板化 8 套）、腰部 KOL 组合投放（6 位）",
+    "total_cost": 8.0,
+    "lead_days": 6,
+    "budget": 10,
+    "remaining_budget": 2.0,
+    "saved_at": "2026-10-28T20:54:54",
+    "duplicate_save": false,
+    "steps_included": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

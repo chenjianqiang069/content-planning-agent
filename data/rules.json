@@ -1,0 +1,39 @@
+{
+  "_comment": "业务规则。规则以数据形式外置，代码只读取，不硬编码阈值，方便评审核对预算与依赖计算。",
+  "budget_rule": {
+    "formula": "projected_spend = already_spent + materials_cost + billable_tool_fees",
+    "feasible_when": "projected_spend <= budget",
+    "failed_tool_calls_are_free": true,
+    "over_budget_action": "reject_save",
+    "unit": "模拟单位"
+  },
+  "deadline_rule": {
+    "formula": "plan_lead_days = max(material.lead_days) + generate_script.script_days",
+    "feasible_when": "plan_lead_days <= available_days",
+    "on_violation": "reject_save"
+  },
+  "save_guards": [
+    "budget_within_limit",
+    "deadline_within_limit",
+    "script_step_succeeded_for_same_materials",
+    "budget_and_deadline_provided",
+    "no_duplicate_charge_on_same_plan_id"
+  ],
+  "step_limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16,
+    "on_limit": "return_incomplete_with_reason"
+  },
+  "status_codes": {
+    "completed": "方案已保存，全部必需步骤成功",
+    "incomplete_missing_input": "缺少预算或截止时间等必需输入，未启动规划",
+    "incomplete_no_feasible_plan": "所有候选方案均不可行，返回缺口",
+    "incomplete_step_limit": "达到步数或工具调用上限，返回已成功的步骤",
+    "incomplete_tool_failure": "工具持续失败且无替代路径",
+    "incomplete_not_saved": "模型结束但未成功保存方案"
+  },
+  "idempotency": {
+    "plan_id_derivation": "sha1(theme + sorted(material_ids) + script_fingerprint)[:12]",
+    "duplicate_save_behavior": "return_existing_record_and_mark_duplicate"
+  }
+}

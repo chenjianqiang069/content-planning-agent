@@ -1,0 +1,160 @@
+{
+  "status": "completed",
+  "is_completed": true,
+  "reason": "方案已保存：plan_4c6124cba81d，总成本 16.0 / 预算 20，交付周期 12 天。共执行 4 步，成功 3 步，失败 0 步。",
+  "task": {
+    "theme": "夏日气泡水新品种草",
+    "budget": 20,
+    "deadline": "2026-12-15",
+    "audience": "18-30 岁都市白领",
+    "notes": "重复提交同一需求，验证幂等"
+  },
+  "budget": 20,
+  "total_spent": 1.0,
+  "step_count": 4,
+  "tool_call_count": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "real",
+  "usage": {
+    "input_tokens": 12257,
+    "output_tokens": 1356
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "input": {
+        "tags": [
+          "种草",
+          "夏日气泡水"
+        ]
+      },
+      "status": "partial",
+      "charge": 0.0,
+      "result_summary": "部分成功：命中 5 条 -> m_short_video_pro, m_kol_top, m_live_studio, m_ugc_lite, m_kol_mid",
+      "error": null,
+      "decision_basis": "规划第一步必须先检索素材，了解「夏日气泡水」种草可选素材的成本与交期，才能判断预算是否够用。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:59:36",
+      "detail": {}
+    },
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_ugc_lite"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 16.0/预算 20，周期 12天/可用 48天 -> 可行",
+      "error": null,
+      "decision_basis": "素材目录已拿到；种草主题相关且质量最高的组合是「专业短视频+头部KOL+UGC轻量包」，素材合计 15，加脚本费应在 20 预算内，先用 estimate_cost 确认可行性。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:59:47",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 16.0,
+        "plan_lead_days": 12,
+        "available_days": 48
+      }
+    },
+    {
+      "step": 3,
+      "tool": "generate_script",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_ugc_lite"
+        ],
+        "style": "种草"
+      },
+      "status": "success",
+      "charge": 1.0,
+      "result_summary": "成功：script_01_m_kol_top-m_short_video_pro-m_ugc_lite，计费 1.0，累计支出 1.0",
+      "error": null,
+      "decision_basis": "估算结果显示该组合可行（16.0 ≤ 20，12 天 ≤ 48 天），按步骤依赖需先为「同一组素材」生成脚本。",
+      "duration_hours": 2.0,
+      "timestamp": "2026-10-28T20:59:51",
+      "detail": {}
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_ugc_lite"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功（幂等命中）：plan_4c6124cba81d 已存在，未重复计费",
+      "error": null,
+      "decision_basis": "脚本已为同一组素材成功生成（fee 1.0），预算与周期均已通过估算校验，现在保存方案。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:59:54",
+      "detail": {
+        "plan_id": "plan_4c6124cba81d",
+        "duplicate": true
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top",
+        "m_ugc_lite"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 16.0/预算 20，周期 12天/可用 48天 -> 可行"
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top",
+        "m_ugc_lite"
+      ],
+      "status": "success",
+      "summary": "成功（幂等命中）：plan_4c6124cba81d 已存在，未重复计费"
+    }
+  ],
+  "saved_plan": {
+    "plan_id": "plan_4c6124cba81d",
+    "theme": "夏日气泡水新品种草",
+    "material_ids": [
+      "m_short_video_pro",
+      "m_kol_top",
+      "m_ugc_lite"
+    ],
+    "script_summary": "《夏日气泡水新品种草》种草脚本，覆盖 3 组素材：专业短视频定制（3 条 15s）、头部 KOL 矩阵投放（2 位）、UGC 轻量素材包（模板化 8 套）",
+    "total_cost": 16.0,
+    "lead_days": 12,
+    "budget": 20,
+    "remaining_budget": 4.0,
+    "saved_at": "2026-10-28T20:59:15",
+    "duplicate_save": false,
+    "steps_included": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "status": "incomplete_step_limit",
+  "is_completed": false,
+  "reason": "达到执行上限（max_steps=2, max_tool_calls=2），任务未完成。已执行 2 步，已花费 0.0 模拟单位。已成功的步骤结果均已保留；未保存方案，因此不计为完成。",
+  "task": {
+    "theme": "夏日气泡水新品种草",
+    "budget": 10,
+    "deadline": "2026-12-15",
+    "audience": "18-30 岁都市白领",
+    "notes": null
+  },
+  "budget": 10,
+  "total_spent": 0.0,
+  "step_count": 2,
+  "tool_call_count": 2,
+  "limits": {
+    "max_steps": 2,
+    "max_tool_calls": 2
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "real",
+  "usage": {
+    "input_tokens": 3955,
+    "output_tokens": 816
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "input": {},
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：命中 5 条 -> m_short_video_pro, m_kol_top, m_live_studio, m_ugc_lite, m_kol_mid",
+      "error": null,
+      "decision_basis": "先摸清素材目录：并行做一次全量检索和一次「短视频」标签检索，便于挑选低成本组合。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:58:21",
+      "detail": {}
+    },
+    {
+      "step": 2,
+      "tool": "search_materials",
+      "input": {
+        "tags": [
+          "短视频"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：命中 1 条 -> m_short_video_pro",
+      "error": null,
+      "decision_basis": "先摸清素材目录：并行做一次全量检索和一次「短视频」标签检索，便于挑选低成本组合。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:58:21",
+      "detail": {}
+    }
+  ],
+  "attempts": [],
+  "saved_plan": null
+}

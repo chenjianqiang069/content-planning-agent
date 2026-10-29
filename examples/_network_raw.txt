@@ -1,0 +1,11 @@
+============================= test session starts =============================
+collecting ... collected 6 items
+
+tests/test_real_model.py::test_real_model_replans_on_over_budget PASSED  [ 16%]
+tests/test_real_model.py::test_real_model_recovers_from_tool_failure PASSED [ 33%]
+tests/test_real_model.py::test_real_model_reports_gap_when_infeasible PASSED [ 50%]
+tests/test_real_model.py::test_real_model_respects_step_limit PASSED     [ 66%]
+tests/test_real_model.py::test_real_model_rejects_missing_input_without_calling_tools PASSED [ 83%]
+tests/test_real_model.py::test_real_model_repeat_run_is_idempotent PASSED [100%]
+
+======================== 6 passed in 353.45s (0:05:53) ========================

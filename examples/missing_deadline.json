@@ -1,0 +1,26 @@
+{
+  "status": "incomplete_missing_input",
+  "is_completed": false,
+  "reason": "缺少必需输入：截止时间。缺少这些约束就无法判断方案是否可行，因此未启动规划（未调用任何工具，未产生费用）。请补全后重新执行。",
+  "task": {
+    "theme": "夏日气泡水新品种草",
+    "budget": 10,
+    "deadline": null,
+    "audience": "18-30 岁都市白领",
+    "notes": null
+  },
+  "budget": 10,
+  "total_spent": 0.0,
+  "step_count": 0,
+  "tool_call_count": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "rejected_before_model",
+  "usage": {},
+  "steps": [],
+  "attempts": [],
+  "saved_plan": null
+}

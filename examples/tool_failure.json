@@ -1,0 +1,243 @@
+{
+  "status": "completed",
+  "is_completed": true,
+  "reason": "方案已保存：plan_3c5804790a01，总成本 12.0 / 预算 15，交付周期 12 天。共执行 7 步，成功 6 步，失败 1 步。",
+  "task": {
+    "theme": "新品智能音箱发布",
+    "budget": 15,
+    "deadline": "2026-12-20",
+    "audience": "科技数码爱好者",
+    "notes": "需要短视频 + KOL 投放"
+  },
+  "budget": 15,
+  "total_spent": 1.0,
+  "step_count": 7,
+  "tool_call_count": 7,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "real",
+  "usage": {
+    "input_tokens": 19294,
+    "output_tokens": 1761
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "input": {},
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：命中 5 条 -> m_short_video_pro, m_kol_top, m_live_studio, m_kol_mid, m_ugc_lite",
+      "error": null,
+      "decision_basis": "先无过滤检索全部素材，了解目录结构、标签命名与价格档位，再决定组合。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:55:14",
+      "detail": {}
+    },
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 12.0/预算 15，周期 12天/可用 53天 -> 可行",
+      "error": null,
+      "decision_basis": "需求要求短视频+KOL，先并行估算两种组合（premium 短视频+头部 KOL，以及再加腰部 KOL 加强覆盖），比较成本与周期余量。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:55:26",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 12.0,
+        "plan_lead_days": 12,
+        "available_days": 53
+      }
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_kol_mid"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 15.0/预算 15，周期 12天/可用 53天 -> 可行",
+      "error": null,
+      "decision_basis": "需求要求短视频+KOL，先并行估算两种组合（premium 短视频+头部 KOL，以及再加腰部 KOL 加强覆盖），比较成本与周期余量。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:55:26",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 15.0,
+        "plan_lead_days": 12,
+        "available_days": 53
+      }
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ],
+        "style": "新品种草（科技数码向）"
+      },
+      "status": "failed",
+      "charge": 0.0,
+      "result_summary": "失败：generate_script 第 1 次调用失败：外部服务暂时不可用（注入的模拟故障）",
+      "error": "generate_script 第 1 次调用失败：外部服务暂时不可用（注入的模拟故障）",
+      "decision_basis": "两者都可行，但三素材组合会耗尽全部预算（剩余 0），而「专业短视频+头部 KOL」质量更高（92/88）、带主题加成且留出 3.0 缓冲，风险更低，故选定该组合并为其生成脚本。",
+      "duration_hours": 2.0,
+      "timestamp": "2026-10-28T20:55:33",
+      "detail": {}
+    },
+    {
+      "step": 5,
+      "tool": "generate_script",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ],
+        "style": "种草"
+      },
+      "status": "success",
+      "charge": 1.0,
+      "result_summary": "成功：script_01_m_kol_top-m_short_video_pro，计费 1.0，累计支出 1.0",
+      "error": null,
+      "decision_basis": "该错误是外部服务瞬时不可用（非素材无效、非预算问题），失败不计费；按规则重试一次同一组素材的脚本生成。",
+      "duration_hours": 2.0,
+      "timestamp": "2026-10-28T20:55:41",
+      "detail": {}
+    },
+    {
+      "step": 6,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 12.0/预算 15，周期 12天/可用 53天 -> 可行",
+      "error": null,
+      "decision_basis": "脚本已成功（计费 1.0），保存前用 estimate_cost 复核最终支出口径是否仍不超预算。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:55:49",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 12.0,
+        "plan_lead_days": 12,
+        "available_days": 53
+      }
+    },
+    {
+      "step": 7,
+      "tool": "save_plan",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：已保存 plan_3c5804790a01，总成本 12.0，剩余预算 3.0",
+      "error": null,
+      "decision_basis": "复核通过（12.0 ≤ 15，12 天 ≤ 53 天），脚本依赖已满足，保存方案。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:55:52",
+      "detail": {
+        "plan_id": "plan_3c5804790a01",
+        "duplicate": false
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 12.0/预算 15，周期 12天/可用 53天 -> 可行"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top",
+        "m_kol_mid"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 15.0/预算 15，周期 12天/可用 53天 -> 可行"
+    },
+    {
+      "step": 6,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 12.0/预算 15，周期 12天/可用 53天 -> 可行"
+    },
+    {
+      "step": 7,
+      "tool": "save_plan",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top"
+      ],
+      "status": "success",
+      "summary": "成功：已保存 plan_3c5804790a01，总成本 12.0，剩余预算 3.0"
+    }
+  ],
+  "saved_plan": {
+    "plan_id": "plan_3c5804790a01",
+    "theme": "新品智能音箱发布",
+    "material_ids": [
+      "m_short_video_pro",
+      "m_kol_top"
+    ],
+    "script_summary": "《新品智能音箱发布》种草脚本，覆盖 2 组素材：专业短视频定制（3 条 15s）、头部 KOL 矩阵投放（2 位）",
+    "total_cost": 12.0,
+    "lead_days": 12,
+    "budget": 15,
+    "remaining_budget": 3.0,
+    "saved_at": "2026-10-28T20:55:52",
+    "duplicate_save": false,
+    "steps_included": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+}

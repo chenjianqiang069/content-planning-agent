@@ -1,0 +1,59 @@
+{
+  "_comment": "合成素材库。cost 单位为模拟单位；lead_days 为素材交付所需天数。quality 越高素材质量越好，Agent 会优先尝试高质量组合，超预算时再降级。",
+  "materials": [
+    {
+      "id": "m_short_video_pro",
+      "name": "专业短视频定制（3 条 15s）",
+      "tier": "premium",
+      "cost": 7,
+      "lead_days": 9,
+      "quality": 92,
+      "tags": ["短视频", "专业制作", "高转化"]
+    },
+    {
+      "id": "m_kol_top",
+      "name": "头部 KOL 矩阵投放（2 位）",
+      "tier": "premium",
+      "cost": 4,
+      "lead_days": 6,
+      "quality": 88,
+      "tags": ["KOL", "头部", "曝光"]
+    },
+    {
+      "id": "m_live_studio",
+      "name": "品牌直播专场（1 场）",
+      "tier": "premium",
+      "cost": 6,
+      "lead_days": 8,
+      "quality": 85,
+      "tags": ["直播", "品牌", "互动"]
+    },
+    {
+      "id": "m_ugc_lite",
+      "name": "UGC 轻量素材包（模板化 8 套）",
+      "tier": "economy",
+      "cost": 4,
+      "lead_days": 2,
+      "quality": 70,
+      "tags": ["UGC", "轻量", "快速"]
+    },
+    {
+      "id": "m_kol_mid",
+      "name": "腰部 KOL 组合投放（6 位）",
+      "tier": "economy",
+      "cost": 3,
+      "lead_days": 3,
+      "quality": 74,
+      "tags": ["KOL", "腰部", "性价比"]
+    }
+  ],
+  "theme_hints": {
+    "_comment": "不同主题下素材的适配度加成，用于让检索结果随主题变化，避免所有输入返回同一份列表。",
+    "default": {},
+    "气泡水": {"m_ugc_lite": 6, "m_short_video_pro": 4},
+    "新品": {"m_short_video_pro": 5, "m_kol_top": 3},
+    "夏日": {"m_ugc_lite": 5, "m_live_studio": 3},
+    "促销": {"m_kol_mid": 6, "m_live_studio": 4},
+    "品牌": {"m_short_video_pro": 4, "m_live_studio": 5}
+  }
+}

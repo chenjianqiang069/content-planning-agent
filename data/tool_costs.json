@@ -1,0 +1,33 @@
+{
+  "_comment": "工具费用与耗时表。fee 单位为模拟单位，成功调用才计费（见 rules.json -> budget_rule.failed_tool_calls_are_free）。duration_hours 为工具执行耗时。script_days 计入方案交付周期。",
+  "tools": {
+    "search_materials": {
+      "fee": 0,
+      "duration_hours": 0.5,
+      "script_days": 0,
+      "billable_to_plan": false,
+      "note": "只读检索，不计费"
+    },
+    "estimate_cost": {
+      "fee": 0,
+      "duration_hours": 0.5,
+      "script_days": 0,
+      "billable_to_plan": false,
+      "note": "只读估算，不计费"
+    },
+    "generate_script": {
+      "fee": 1,
+      "duration_hours": 2.0,
+      "script_days": 3,
+      "billable_to_plan": true,
+      "note": "脚本生成费用计入方案总成本"
+    },
+    "save_plan": {
+      "fee": 0,
+      "duration_hours": 0.5,
+      "script_days": 0,
+      "billable_to_plan": false,
+      "note": "保存动作本身不计费；重复保存不重复计费"
+    }
+  }
+}

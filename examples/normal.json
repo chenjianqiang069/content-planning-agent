@@ -1,0 +1,160 @@
+{
+  "status": "completed",
+  "is_completed": true,
+  "reason": "方案已保存：plan_db7a72ca319d，总成本 18.0 / 预算 20，交付周期 12 天。共执行 4 步，成功 3 步，失败 0 步。",
+  "task": {
+    "theme": "夏日气泡水新品种草",
+    "budget": 20,
+    "deadline": "2026-12-15",
+    "audience": "18-30 岁都市白领",
+    "notes": "希望用高质量素材，预算充足"
+  },
+  "budget": 20,
+  "total_spent": 1.0,
+  "step_count": 4,
+  "tool_call_count": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 16
+  },
+  "model": "anthropic:claude-opus-5-5",
+  "llm_mode": "real",
+  "usage": {
+    "input_tokens": 12087,
+    "output_tokens": 901
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "input": {
+        "tags": [
+          "种草"
+        ],
+        "tier": "premium"
+      },
+      "status": "partial",
+      "charge": 0.0,
+      "result_summary": "部分成功：命中 5 条 -> m_short_video_pro, m_kol_top, m_live_studio, m_ugc_lite, m_kol_mid",
+      "error": null,
+      "decision_basis": "需求明确要求高质量素材，先检索 premium 档素材目录，了解成本与交期。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:53:59",
+      "detail": {}
+    },
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_live_studio"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：预计支出 18.0/预算 20，周期 12天/可用 48天 -> 可行",
+      "error": null,
+      "decision_basis": "三个 premium 素材合计 17，加脚本费约 18，在 20 预算内，先用 estimate_cost 验证成本与周期。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:06",
+      "detail": {
+        "feasible": true,
+        "violations": [],
+        "over_budget_gap": 0.0,
+        "projected_spend": 18.0,
+        "plan_lead_days": 12,
+        "available_days": 48
+      }
+    },
+    {
+      "step": 3,
+      "tool": "generate_script",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_live_studio"
+        ],
+        "style": "种草"
+      },
+      "status": "success",
+      "charge": 1.0,
+      "result_summary": "成功：script_01_m_kol_top-m_live_studio-m_short_video_pro，计费 1.0，累计支出 1.0",
+      "error": null,
+      "decision_basis": "估算结果可行（18.0/20，周期 12 天），现在为同一组素材生成种草风格脚本以满足保存依赖。",
+      "duration_hours": 2.0,
+      "timestamp": "2026-10-28T20:54:09",
+      "detail": {}
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "input": {
+        "material_ids": [
+          "m_short_video_pro",
+          "m_kol_top",
+          "m_live_studio"
+        ]
+      },
+      "status": "success",
+      "charge": 0.0,
+      "result_summary": "成功：已保存 plan_db7a72ca319d，总成本 18.0，剩余预算 2.0",
+      "error": null,
+      "decision_basis": "脚本已为同一组素材生成成功，预算与周期均满足，直接保存方案。",
+      "duration_hours": 0.5,
+      "timestamp": "2026-10-28T20:54:13",
+      "detail": {
+        "plan_id": "plan_db7a72ca319d",
+        "duplicate": false
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "step": 2,
+      "tool": "estimate_cost",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top",
+        "m_live_studio"
+      ],
+      "status": "success",
+      "summary": "成功：预计支出 18.0/预算 20，周期 12天/可用 48天 -> 可行"
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "material_ids": [
+        "m_short_video_pro",
+        "m_kol_top",
+        "m_live_studio"
+      ],
+      "status": "success",
+      "summary": "成功：已保存 plan_db7a72ca319d，总成本 18.0，剩余预算 2.0"
+    }
+  ],
+  "saved_plan": {
+    "plan_id": "plan_db7a72ca319d",
+    "theme": "夏日气泡水新品种草",
+    "material_ids": [
+      "m_short_video_pro",
+      "m_kol_top",
+      "m_live_studio"
+    ],
+    "script_summary": "《夏日气泡水新品种草》种草脚本，覆盖 3 组素材：专业短视频定制（3 条 15s）、头部 KOL 矩阵投放（2 位）、品牌直播专场（1 场）",
+    "total_cost": 18.0,
+    "lead_days": 12,
+    "budget": 20,
+    "remaining_budget": 2.0,
+    "saved_at": "2026-10-28T20:54:13",
+    "duplicate_save": false,
+    "steps_included": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}
