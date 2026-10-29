@@ -119,12 +119,18 @@ def test_real_model_rejects_missing_input_without_calling_tools():
 
 @requires_api
 def test_real_model_repeat_run_is_idempotent():
-    """重复执行：两次真实运行共享方案库，方案写入保持幂等。
+    """重复执行：两次真实运行共享方案库，端到端幂等链路能跑通。
 
     真实模型在第二次运行里可能选出与第一次不同的素材组合（预算宽裕时它有权这么做），
     那会得到两个**不同**的 plan_id —— 这不是幂等被破坏，而是两个不同方案。
     幂等的真正不变量是：同一个 plan_id 绝不会被写入两次，复用既有方案的保存
     标记为 duplicate 且计费为 0。断言这两条，而不是断言「方案库只有 1 条」。
+
+    诚实提示：本测试对「plan_id 是否跨运行稳定」没有鉴别力 —— bug 触发时（同组合
+    但 plan_id 因运行内序号不同而不同）它会落入下面的 else 分支而照样通过。真正钉住
+    plan_id 稳定性的是确定性单元测试：
+    tests/test_tools.py::test_plan_id_is_stable_across_runs_regardless_of_script_order。
+    本测试只负责验证真实模型端到端能完成重复执行链路。
     """
     from src.scenarios import REPEAT_SCENARIO
 
